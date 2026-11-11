@@ -51,9 +51,6 @@ elif auth_option == "JWT Token":
 else:
     headers = {}
 
-# Debugging output
-print(f"Headers: {headers}")
-
 # Date range selection
 start_date = st.sidebar.date_input("Start Date", datetime.now() - timedelta(days=2))
 end_date = st.sidebar.date_input("End Date", datetime.now())
