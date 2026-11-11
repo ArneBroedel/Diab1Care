@@ -102,9 +102,12 @@ if st.sidebar.button("Fetch Glucose Data"):
 
             # Debugging output
             print(f"Response Status Code: {response.status_code}")
-            print(f"Response Content: {response.content}")
 
             entries = response.json()
+
+            # Debugging output (count only, no glucose values)
+            entry_count = len(entries) if isinstance(entries, list) else "n/a"
+            print(f"Number of entries received: {entry_count}")
 
             if not entries:
                 st.warning("No glucose entries found for the selected date range.")
@@ -118,9 +121,6 @@ if st.sidebar.button("Fetch Glucose Data"):
 
                 # Sort by dateTime
                 df = df.sort_values('dateTime')
-
-                # Debugging output
-                print("DataFrame head:", df.head())
 
                 # Group by date and plot each day separately
                 df['date'] = df['dateTime'].dt.date
