@@ -17,3 +17,16 @@ A simple Streamlit app template for you to modify!
    ```
    $ streamlit run streamlit_app.py
    ```
+
+### Nightscout URL
+
+The app only fetches `https://` URLs that point to public addresses.
+If you run the app on your own machine and your Nightscout instance is on
+`http://localhost` or in your private network, start it with
+`NIGHTSCOUT_ALLOW_LOCAL_URLS=1`:
+
+```
+$ NIGHTSCOUT_ALLOW_LOCAL_URLS=1 streamlit run streamlit_app.py
+```
+
+Do not set this variable on a public deployment.
